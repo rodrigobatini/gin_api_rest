@@ -37,7 +37,7 @@ The project uses the following environment variables:
 The project depends on the following libraries and frameworks, which are listed in the go.sum and go.mod files.
 
 ## DB Setup and Migrations
-Currently, you need to manually create the database. Setup and migrations are still under development.
+The `migrations` folder at the root contains the migration files necessary for the updated functionality of the API. The main.go file is responsible for executing these migrations using `AutoMigrate`.
 
 ## Testing
 The testing module is under development.
