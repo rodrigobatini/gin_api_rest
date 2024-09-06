@@ -26,7 +26,7 @@ To install the project, follow these steps:
     - depending on which version and how you installed docker-compose, you may need to run as `docker compose up`
 
 ## DB Setup and Migrations
-The `migrations` folder at the root contains the migration files necessary for the updated functionality of the API. The main.go file is responsible for executing these migrations using `AutoMigrate`.
+The `main.go` file is responsible for executing auto migrations using `AutoMigrate`.
 
 ## Testing
 The testing module is under development.
