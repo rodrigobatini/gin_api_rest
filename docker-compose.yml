@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gin_api_rest
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork    
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gin-api-rest-container
+    depends_on:
+      postgres:
+        condition: service_started
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

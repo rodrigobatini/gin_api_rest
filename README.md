@@ -4,37 +4,26 @@
 This is a boilerplate and learning project, developed in Go - using compiler version 1.9 - and the Postgres database. The project depends on several libraries and frameworks, which are listed in the go.sum and go.mod files.
 
 ## Requirements
-- Go 1.9 or higher
-- Postgres installed and configured
+- docker-engine and docker-compose
 
 ## Installation
 To install the project, follow these steps:
 
 - Clone the repository using the command git clone <repository URL>
-- Run the command go run main.go to start the project
+- Create a .env file with the following content
 
-## Postgres Configuration
-To configure Postgres, you'll need to create a database and a user with appropriate permissions. You can do this by executing the following commands:
+    | Variable    | Description |
+    |:------------|:------------|
+    | PG_HOST     | postgres    |
+    | PG_PORT     | 5432        |
+    | PG_USER     | postgres    |
+    | PG_PASSWORD | postgres    |
+    | DB_NAME     | gin_api_rest|
 
-```sql
-CREATE DATABASE gin_api_rest;
-CREATE ROLE {meu_usuario} WITH PASSWORD '{minha_senha}';
-GRANT ALL PRIVILEGES ON DATABASE gin_api_rest TO {meu_usuario};
-```
+    - You can adjust these settings as you prefer, as long as they are reflected in the `docker-compose.yml` under the postgres section. 
 
-## Environment Variables
-The project uses the following environment variables:
-
-| Variable      | Desription                        |
-|:--------------|:----------------------------------|
-| PG_HOST:      | Postgres server address           |
-| PG_PORT:      | Postgres server port              |
-| PG_USER:      | Postgres user                     |
-| PG_PASSWORD:  | Postgres password                 |
-
-
-## Dependencies
-The project depends on the following libraries and frameworks, which are listed in the go.sum and go.mod files.
+- Run the command `docker-compose up` to run the application on foreground (use `-d` for running on background)
+    - depending on which version and how you installed docker-compose, you may need to run as `docker compose up`
 
 ## DB Setup and Migrations
 The `migrations` folder at the root contains the migration files necessary for the updated functionality of the API. The main.go file is responsible for executing these migrations using `AutoMigrate`.
