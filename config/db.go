@@ -5,6 +5,8 @@ import (
 	"log"
 	"os"
 
+	"gin_api_rest/migrations"
+
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -30,4 +32,13 @@ func GetDb() (*gorm.DB, error) {
 		return nil, err
 	}
 	return db, nil
+}
+
+func setupDb() {
+	db, err := GetDb()
+
+	if err != nil {
+		log.Fatal("Error connecting to database")
+	}
+	migrations.Migrate(db)
 }
