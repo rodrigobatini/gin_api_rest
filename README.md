@@ -1,24 +1,20 @@
 # GIN API REST
 
-## Descrição
+## Description
+This is a boilerplate and learning project, developed in Go - using compiler version 1.9 - and the Postgres database. The project depends on several libraries and frameworks, which are listed in the go.sum and go.mod files.
 
-Este é um projeto boilerplate e de aprendizado, feito em Go - que utiliza a versão 1.9 do compilador - e o banco de dados Postgres. O projeto depende de várias bibliotecas e frameworks, que estão listadas no arquivo go.sum e go.mod.
+## Requirements
+- Go 1.9 or higher
+- Postgres installed and configured
 
-## Requisitos
+## Installation
+To install the project, follow these steps:
 
-- Go 1.9 ou superior
-- Postgres instalado e configurado
+- Clone the repository using the command git clone <repository URL>
+- Run the command go run main.go to start the project
 
-## Instalação
-
-Para instalar o projeto, siga os passos abaixo:
-
-- Clone o repositório utilizando o comando git clone <URL do repositório>
-- Execute o comando ```go run main.go``` para iniciar o projeto
-
-## Configuração do Postgres
-
-Para configurar o Postgres, você precisará criar um banco de dados e um usuário com permissões adequadas. Você pode fazer isso executando os seguintes comandos:
+## Postgres Configuration
+To configure Postgres, you'll need to create a database and a user with appropriate permissions. You can do this by executing the following commands:
 
 ```sql
 CREATE DATABASE gin_api_rest;
@@ -26,19 +22,22 @@ CREATE ROLE {meu_usuario} WITH PASSWORD '{minha_senha}';
 GRANT ALL PRIVILEGES ON DATABASE gin_api_rest TO {meu_usuario};
 ```
 
-## Variáveis de Ambiente
-O projeto utiliza as seguintes variáveis de ambiente:
+## Environment Variables
+The project uses the following environment variables:
 
-| Variável      | Descrição                         |
+| Variable      | Desription                        |
 |:--------------|:----------------------------------|
-| PG_HOST:      | o endereço do servidor Postgres   |
-| PG_PORT:      | a porta do servidor Postgres      |
-| PG_USER:      | o nome do usuário Postgres        |
-| PG_PASSWORD:  | a senha do usuário Postgres       |
+| PG_HOST:      | Postgres server address           |
+| PG_PORT:      | Postgres server port              |
+| PG_USER:      | Postgres user                     |
+| PG_PASSWORD:  | Postgres password                 |
 
 
-## Dependências
-O projeto depende das seguintes bibliotecas e frameworks, que estão listadas no arquivo go.sum e go.mod
+## Dependencies
+The project depends on the following libraries and frameworks, which are listed in the go.sum and go.mod files.
 
-## DB Setup e Migrations
-Atualmente precisa criar o banco na mão, setup e migrations são WiP
+## DB Setup and Migrations
+Currently, you need to manually create the database. Setup and migrations are still under development.
+
+## Testing
+The testing module is under development.
