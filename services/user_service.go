@@ -15,14 +15,6 @@ func NewUserService() *UserService {
 	return &UserService{}
 }
 
-func (us *UserService) HelloWorld() ([]models.User, error) {
-	users, err := us.userRepository.GetUsers()
-	if err != nil {
-		return nil, errors.Wrap(err, "erro ao obter usuários")
-	}
-	return users, nil
-}
-
 func (us *UserService) GetUsers() ([]models.User, error) {
 	users, err := us.userRepository.GetUsers()
 	if err != nil {

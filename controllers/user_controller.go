@@ -19,15 +19,6 @@ func NewUserController(userService *services.UserService) *UserController {
 	return &UserController{userService: userService}
 }
 
-func (uc *UserController) HelloWorld(c *gin.Context) {
-	helloResponse, err := uc.userService.HelloWorld()
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
-	}
-	c.JSON(http.StatusOK, helloResponse)
-}
-
 func (uc *UserController) GetUsers(c *gin.Context) {
 	users, err := uc.userService.GetUsers()
 	if err != nil {

@@ -11,8 +11,6 @@ func SetupRoutes(router *gin.Engine) {
 	userService := services.NewUserService() // Supondo que você tenha um construtor para UserService
 	userController := controllers.NewUserController(userService)
 
-	router.GET("", userController.HelloWorld)
-
 	users := router.Group("/users")
 	{
 		users.GET("", userController.GetUsers)
